@@ -1,4 +1,5 @@
 import py_compile
+import traceback
 
 try:
     import os
@@ -21,6 +22,7 @@ try:
             __import__(mod + '.python', globals(), locals(), [])
             print 'loaded ' + mod
         except:
+            traceback.print_exc()
             pass
 except Exception, e:
     print 'Loader failed:',e
