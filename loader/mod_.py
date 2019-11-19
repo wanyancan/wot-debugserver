@@ -5,7 +5,7 @@ try:
     import os
     import sys
 
-    mods_path = './res_mods/mods'
+    mods_path = '../res_mods/mods'
     mods = os.listdir(mods_path + '/packages')
     print 'Trying to load following mods:'
     print mods
@@ -25,4 +25,5 @@ try:
             traceback.print_exc()
             pass
 except Exception, e:
+    traceback.print_exc()
     print 'Loader failed:',e
