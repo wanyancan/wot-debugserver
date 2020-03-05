@@ -5,7 +5,7 @@ try:
     import os
     import sys
 
-    mods_path = '../res_mods/mods'
+    mods_path = './res_mods/mods'
     mods = os.listdir(mods_path + '/packages')
     print 'Trying to load following mods:'
     print mods
@@ -14,6 +14,9 @@ try:
     for mod in mods:
         try:
 	    path = '%s/packages/%s/' % (mods_path,mod)
+            if not os.path.isdir(path):
+                print('{0} is not directory'.format(path))
+                continue
 	    if not os.path.exists(path+'__init__.pyc'):
 	        with open(path+'__init__.py', 'w') as f:
 	            pass
